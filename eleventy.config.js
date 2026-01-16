@@ -1,8 +1,15 @@
 import footnote_plugin from 'markdown-it-footnote';
 import markdownIt from "markdown-it";
 import pluginIcons from 'eleventy-plugin-icons';
+import { rimrafSync } from 'rimraf';
 
 export default function (eleventyConfig) {
+	// Delete the _site folder before the build starts
+	eleventyConfig.on('eleventy.before', async () => {
+		console.log("Cleaning _site directory...");
+		rimrafSync('_site');
+	});
+
 	// Output directory: _site
 
 	// Copy `imgs/` to `_site/imgs/`
@@ -60,6 +67,5 @@ export default function (eleventyConfig) {
 		// Enable live reload (should be default but making explicit)
 		liveReload: true,
 	});
-
 
 };
