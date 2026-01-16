@@ -74,3 +74,14 @@ export default function (eleventyConfig) {
 	});
 
 };
+
+// .eleventy.js
+module.exports = function(eleventyConfig) {
+  eleventyConfig.addShortcode("analytics", function() {
+    // Only output the script if we are building for production
+    if (process.env.ELEVENTY_ENV === 'production') {
+      return `<script defer data-domain="tomkingdom.github.io" src="https://plausible.io/js/script.js"></script>`;
+    }
+    return ""; // Return nothing in dev mode
+  });
+};
