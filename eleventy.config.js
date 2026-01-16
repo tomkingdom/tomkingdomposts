@@ -61,10 +61,5 @@ export default function (eleventyConfig) {
 		liveReload: true,
 	});
 
-	return {
-		dir: {
-			input: ".",
-			output: "_site"
-		}
-	};
+
 };
