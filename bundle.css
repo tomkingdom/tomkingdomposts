@@ -151,11 +151,8 @@ a {
 
 /*
 
-
-
-
-
 – – POST – –  
+
 */
 
 /* post header */
@@ -169,12 +166,6 @@ a {
 .post-header-date {
   @apply font-serif text-lg italic;
 }
-
-
-
-
-
-
 
 
 /* 

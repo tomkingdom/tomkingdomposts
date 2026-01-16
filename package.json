@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "eleventy && tailwindcss -i ./bundle.css -o ./_site/bundle.css --minify --clean",
+    "clean": "rimraf _site",
+    "build": "npm run clean && eleventy && tailwindcss -i ./bundle.css -o ./_site/bundle.css --minify --clean",
     "dev:site": "eleventy --serve --port=8080",
     "dev:css": "tailwindcss -i ./bundle.css -o ./_site/bundle.css --watch --verbose",
-    "dev": "concurrently -k -n ELEVENTY,TAILWIND -c green,magenta \"npm:dev:site\" \"npm:dev:css\" --clean",
+    "dev": "npm run clean && concurrently -k -n ELEVENTY,TAILWIND -c green,magenta \"npm:dev:site\" \"npm:dev:css\" --clean",
     "serve": "npm run dev",
     "start": "npm run dev"
   },

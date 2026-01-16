@@ -1,4 +1,5 @@
 ---
+title: About
 layout: about.html
 ---
 
@@ -9,7 +10,6 @@ From early-stage exploratory research to building design systems, and from brand
 Currently I work in Munich for [FTAPI](https://www.ftapi.com), a data transfer platform.
 
 You can find me on [LinkedIn](https://www.linkedin.com/in/tom-kingdom-041212142/) or get in touch at [t@tomkingdom.com](mailto:t@tomkingdom.com).
-
 
 ## Posts
 

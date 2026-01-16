@@ -4,17 +4,6 @@ import pluginIcons from 'eleventy-plugin-icons';
 import { rimrafSync } from 'rimraf';
 
 export default function (eleventyConfig) {
-	// Delete the _site folder before the build starts
-	eleventyConfig.on('eleventy.before', async () => {
-		console.log("Cleaning _site directory...");
-		try {
-			rimrafSync('_site');
-			console.log("✅ Successfully cleaned _site directory");
-		} catch (error) {
-			console.error("❌ Error cleaning _site directory:", error);
-		}
-	});
-
 	// Output directory: _site
 
 	// Copy `imgs/` to `_site/imgs/`
@@ -61,8 +50,10 @@ export default function (eleventyConfig) {
 	});
 
 	// Tell 11ty to watch the CSS file built by Tailwind
-	eleventyConfig.addWatchTarget("./_site/bundle.css");
 	eleventyConfig.addWatchTarget("./bundle.css");
+	
+	// Ignore the built CSS file to prevent Eleventy from copying over it
+	eleventyConfig.ignores.add("_site/bundle.css");
 	
 	// Configure the server for better live reload
 	eleventyConfig.setServerOptions({

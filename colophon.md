@@ -1,8 +1,7 @@
 ---
+title: Colophon
 layout: about.html
 ---
-
-## Colophon
 
 What is a Colophon, you might ask? 
 
@@ -12,7 +11,6 @@ Traditionally it's a publisher's emblem or imprint, usually on the title page of
 * Hosted on [Github](https://github.com/tomkingdom).
 * Fonts used are Inter by [Rasmus Andersson](https://rsms.me/about/) and Cardo by [David J. Perry](https://scholarsfonts.net/cardofnt.html). 
 * Navigation inspired by [ohnotype.co](https://ohnotype.co/fonts).
-
 
 ## Roadmap
 
@@ -24,7 +22,6 @@ Notes to self as to what to add next.
 * Copy button for post pages.
 * Back link on posts.
 * Post sort switcher (between topic, draft state and date).
-* Tracking.
 * LinkedIn post as a shout-out to all influences.
 * Opening and closing hours.
 * Full size image window.
