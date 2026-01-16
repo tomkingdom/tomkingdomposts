@@ -4,11 +4,12 @@ layout: about.html
 
 ## Colophon
 
-What is a Colophon, you ask? 
+What is a Colophon, you might ask? 
 
 Traditionally it's a publisher's emblem or imprint, usually on the title page of a book. Nowadays it sometimes used online to explain how a website was made.
 
-* Built with [Eleventy](https://www.11ty.dev/).  
+* Built with [Eleventy](https://www.11ty.dev/).
+* Hosted on [Github](https://github.com/tomkingdom).
 * Fonts used are Inter by [Rasmus Andersson](https://rsms.me/about/) and Cardo by [David J. Perry](https://scholarsfonts.net/cardofnt.html). 
 * Navigation inspired by [ohnotype.co](https://ohnotype.co/fonts).
 
