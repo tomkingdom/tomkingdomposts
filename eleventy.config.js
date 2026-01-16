@@ -77,7 +77,13 @@ export default function (eleventyConfig) {
 	eleventyConfig.addShortcode("analytics", function() {
 		// Only output the script if we are building for production
 		if (process.env.ELEVENTY_ENV === 'production') {
-			return `<script defer data-domain="tomkingdom.github.io" src="https://plausible.io/js/script.js"></script>`;
+			return `<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-X71eNRa5m2n01fk1ubBZl.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+`;
 		}
 		return ""; // Return nothing in dev mode
 	});
