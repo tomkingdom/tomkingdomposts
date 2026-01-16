@@ -121,6 +121,13 @@ a {
 
 /* text */
 
+.about {
+  @apply mt-12 md:mt-2;
+}
+.about :first-child {
+  @apply md:mt-2;
+}
+
 .about a {
   @apply underline decoration-1 underline-offset-4 decoration-for-link hover:text-for-link;
 }

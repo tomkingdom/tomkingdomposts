@@ -530,6 +530,17 @@ a {
     }
   }
 }
+.about {
+  margin-top: calc(var(--spacing) * 12);
+  @media (width >= 48rem) {
+    margin-top: calc(var(--spacing) * 2);
+  }
+}
+.about :first-child {
+  @media (width >= 48rem) {
+    margin-top: calc(var(--spacing) * 2);
+  }
+}
 .about a {
   text-decoration-line: underline;
   text-decoration-color: var(--color-for-link);

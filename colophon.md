@@ -3,6 +3,8 @@ title: Colophon
 layout: about.html
 ---
 
+## Colophon
+
 What is a Colophon, you might ask? 
 
 Traditionally it's a publisher's emblem or imprint, usually on the title page of a book. Nowadays it sometimes used online to explain how a website was made.
