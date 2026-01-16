@@ -63,9 +63,3 @@ export default function (eleventyConfig) {
 
 
 };
-
-module.exports = function(eleventyConfig) {
-  return {
-    pathPrefix: "/tomkingdomposts/" // Replace with your actual repository name
-  };
-};
