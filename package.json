@@ -22,7 +22,8 @@
     "eleventy-plugin-icons": "^4.5.4",
     "lucide-static": "^0.544.0",
     "markdown-it-footnote": "^4.0.0",
-    "markdown-it-link-attributes": "^4.0.1"
+    "markdown-it-link-attributes": "^4.0.1",
+    "rimraf": "^6.1.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.13",

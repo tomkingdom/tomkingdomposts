@@ -7,7 +7,12 @@ export default function (eleventyConfig) {
 	// Delete the _site folder before the build starts
 	eleventyConfig.on('eleventy.before', async () => {
 		console.log("Cleaning _site directory...");
-		rimrafSync('_site');
+		try {
+			rimrafSync('_site');
+			console.log("✅ Successfully cleaned _site directory");
+		} catch (error) {
+			console.error("❌ Error cleaning _site directory:", error);
+		}
 	});
 
 	// Output directory: _site
