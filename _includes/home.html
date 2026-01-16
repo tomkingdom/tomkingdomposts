@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="/bundle.css">
+  <title>Tom Kingdom</title>
+
+</head>
+<body>
+  
+  <header>
+  {% include "nav.html" %}   
+  </header>
+  <main>
+
+  
+
+    <ul class="posts">
+      {% assign allPosts = collections.post | sort: 'date' | reverse %}
+      {% for post in allPosts %}
+      <li>
+        <a class="post-link" href="{{ post.url | url }}">
+          <div class="post-title">
+            {{ post.data.title }}
+          </div> 
+          <div class="post-info">
+            <div class="post-date">{{ post.date | date: "%b %d, %Y" }}</div>
+          </div>
+        </a>
+      
+      </li>
+      {% endfor %}
+    </ul>
+
+
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="/bundle.css">
+  <title>Should Designers Code?</title>
+</head>
+<body>
+<main>
+
+  <header>
+    <div class="nav-container">
+  <div class="nav">
+  <ol>
+    <li><a class="nav-item" href="/"><span>Posts</span></a></li>
+    <li><a class="nav-item" href="/about"><span>About</span></a></li>
+    <li><a class="nav-item" href="/colophon"><span>Colophon</span></a></li>
+  </ol>
+
+</div>
+</div>
+
+<script>
+(function() {
+  // Track if nav should stay open
+  let navShouldStayOpen = false;
+  const navContainer = document.querySelector('.nav-container');
+  
+  if (!navContainer) return;
+
+  // On hover, mark that nav should stay open
+  navContainer.addEventListener('mouseenter', () => {
+    navShouldStayOpen = true;
+    navContainer.classList.add('nav-persistent');
+  });
+
+  // Reset state when mouse leaves completely
+  navContainer.addEventListener('mouseleave', () => {
+    // Small delay to prevent flickering
+    setTimeout(() => {
+      if (!navContainer.matches(':hover')) {
+        navShouldStayOpen = false;
+        navContainer.classList.remove('nav-persistent');
+        sessionStorage.removeItem('navOpen');
+      }
+    }, 200);
+  });
+
+  // Store state in sessionStorage before navigation
+  navContainer.addEventListener('click', (e) => {
+    if (e.target.closest('a')) {
+      if (navShouldStayOpen) {
+        sessionStorage.setItem('navOpen', 'true');
+      }
+    }
+  });
+
+  // Restore state on page load
+  if (sessionStorage.getItem('navOpen')) {
+    navContainer.classList.add('nav-persistent');
+    navShouldStayOpen = true;
+  }
+
+  // Clear state if user navigates away from nav area after page load
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-container')) {
+      if (!navContainer.matches(':hover')) {
+        navContainer.classList.remove('nav-persistent');
+        sessionStorage.removeItem('navOpen');
+        navShouldStayOpen = false;
+      }
+    }
+  });
+
+
+
+
+
+})();
+</script>
+   
+  </header>
+
+
+  <div class="post-header">
+    <span class="post-header-links">
+      <h1>Should Designers Code? <span class="italic text-for-primary">Draft</span></h1>
+    </span>
+    <span class="post-header-date">Jan 14, 2017</span> 
+  </div>  
+
+  <div class="post-content">
+    <p>Yes. Designers who sit within a feature team gain large advantages if they can code. Here are three reasons why.</p>
+<h2>Shared vocabulary</h2>
+<p>It creates a &quot;shared vocabulary between engineering and design&quot;<sup class="footnote-ref"><a href="#fn1" id="fnref1">1</a></sup>. When engineers talk about changes that need to be made and shipping fixes to customers, the design team are no longer left scratching their heads.</p>
+<h2>Tickets are done quicker</h2>
+<p>Everyone does code reviews. Designers now get hands-on when reviewing pull requests, requesting and reviewing screenshots/gifs and sitting with engineers to desk-review implementations. They’re now creating their own pull requests.<sup class="footnote-ref"><a href="#fn2" id="fnref2">2</a></sup></p>
+<h2>Small changes are no longer blocked by busy engineers</h2>
+<p>I would be more effective if I didn't have to wait for other people... ...I ended up becoming more effective because I was able to ship the small things and fix bugs myself. Text changes. Translations file. <sup class="footnote-ref"><a href="#fn2" id="fnref2">2</a></sup></p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="#fnref1" class="footnote-backref">1</a></p><p><a href="https://designdetails.fm/">Design Details Podcast</a>, Bryn Jackson</p>
+</li>
+<li id="fn2" class="footnote-item"><p><a href="#fnref2" class="footnote-backref">2</a></p><p><a href="https://blog.intercom.com/shipping-code-designers/">Shipping code for designers, not just engineers</a>, Lorcan Coyle</p>
+</li>
+</ol>
+</section>
+
+  </div>
+
+</main>
+</body>
+
+
+</html>

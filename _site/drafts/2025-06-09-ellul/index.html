@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="/bundle.css">
+  <title>Jacques Ellul on Product Development</title>
+</head>
+<body>
+<main>
+
+  <header>
+    <div class="nav-container">
+  <div class="nav">
+  <ol>
+    <li><a class="nav-item" href="/"><span>Posts</span></a></li>
+    <li><a class="nav-item" href="/about"><span>About</span></a></li>
+    <li><a class="nav-item" href="/colophon"><span>Colophon</span></a></li>
+  </ol>
+
+</div>
+</div>
+
+<script>
+(function() {
+  // Track if nav should stay open
+  let navShouldStayOpen = false;
+  const navContainer = document.querySelector('.nav-container');
+  
+  if (!navContainer) return;
+
+  // On hover, mark that nav should stay open
+  navContainer.addEventListener('mouseenter', () => {
+    navShouldStayOpen = true;
+    navContainer.classList.add('nav-persistent');
+  });
+
+  // Reset state when mouse leaves completely
+  navContainer.addEventListener('mouseleave', () => {
+    // Small delay to prevent flickering
+    setTimeout(() => {
+      if (!navContainer.matches(':hover')) {
+        navShouldStayOpen = false;
+        navContainer.classList.remove('nav-persistent');
+        sessionStorage.removeItem('navOpen');
+      }
+    }, 200);
+  });
+
+  // Store state in sessionStorage before navigation
+  navContainer.addEventListener('click', (e) => {
+    if (e.target.closest('a')) {
+      if (navShouldStayOpen) {
+        sessionStorage.setItem('navOpen', 'true');
+      }
+    }
+  });
+
+  // Restore state on page load
+  if (sessionStorage.getItem('navOpen')) {
+    navContainer.classList.add('nav-persistent');
+    navShouldStayOpen = true;
+  }
+
+  // Clear state if user navigates away from nav area after page load
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-container')) {
+      if (!navContainer.matches(':hover')) {
+        navContainer.classList.remove('nav-persistent');
+        sessionStorage.removeItem('navOpen');
+        navShouldStayOpen = false;
+      }
+    }
+  });
+
+
+
+
+
+})();
+</script>
+   
+  </header>
+
+
+  <div class="post-header">
+    <span class="post-header-links">
+      <h1>Jacques Ellul on Product Development <span class="italic text-for-primary">Draft</span></h1>
+    </span>
+    <span class="post-header-date">Jun 09, 2025</span> 
+  </div>  
+
+  <div class="post-content">
+    <ol>
+<li>The Primacy of &quot;Means&quot; over &quot;Ends&quot;<br>
+In pre-modern times, tools were secondary to human goals (e.g., a hammer is used to build a house). Ellul argued that in a technological society, we have become so obsessed with the methods (the means) that we have forgotten the reasons (the ends).</li>
+</ol>
+<p>The Vacuum of Purpose: If you don't know why you are doing something, Technique provides the how. It fills the void with a ready-made goal: Efficiency.</p>
+<p>The Trap: If you have no higher purpose, you will naturally choose the &quot;one best way&quot; (the most efficient path) because it seems logical. In doing so, you stop being a &quot;deciding human&quot; and start being a &quot;functioning component.&quot;</p>
+
+  </div>
+
+</main>
+</body>
+
+
+</html>

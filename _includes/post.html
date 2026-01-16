@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="/bundle.css">
+  <title>{{ title }}</title>
+</head>
+<body>
+<main>
+
+  <header>
+    {% include "nav.html" %}   
+  </header>
+
+
+  <div class="post-header">
+    <span class="post-header-links">
+      <h1>{{ title }}{% if tags contains "draft" %} <span class="italic text-for-primary">Draft</span>{% endif %}</h1>
+    </span>
+    <span class="post-header-date">{{ page.date | date: "%b %d, %Y" }}</span> 
+  </div>  
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+</main>
+</body>
+
+
+</html>

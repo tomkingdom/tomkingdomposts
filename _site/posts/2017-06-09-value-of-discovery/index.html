@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="/bundle.css">
+  <title>High and Low Leverage</title>
+</head>
+<body>
+<main>
+
+  <header>
+    <div class="nav-container">
+  <div class="nav">
+  <ol>
+    <li><a class="nav-item" href="/"><span>Posts</span></a></li>
+    <li><a class="nav-item" href="/about"><span>About</span></a></li>
+    <li><a class="nav-item" href="/colophon"><span>Colophon</span></a></li>
+  </ol>
+
+</div>
+</div>
+
+<script>
+(function() {
+  // Track if nav should stay open
+  let navShouldStayOpen = false;
+  const navContainer = document.querySelector('.nav-container');
+  
+  if (!navContainer) return;
+
+  // On hover, mark that nav should stay open
+  navContainer.addEventListener('mouseenter', () => {
+    navShouldStayOpen = true;
+    navContainer.classList.add('nav-persistent');
+  });
+
+  // Reset state when mouse leaves completely
+  navContainer.addEventListener('mouseleave', () => {
+    // Small delay to prevent flickering
+    setTimeout(() => {
+      if (!navContainer.matches(':hover')) {
+        navShouldStayOpen = false;
+        navContainer.classList.remove('nav-persistent');
+        sessionStorage.removeItem('navOpen');
+      }
+    }, 200);
+  });
+
+  // Store state in sessionStorage before navigation
+  navContainer.addEventListener('click', (e) => {
+    if (e.target.closest('a')) {
+      if (navShouldStayOpen) {
+        sessionStorage.setItem('navOpen', 'true');
+      }
+    }
+  });
+
+  // Restore state on page load
+  if (sessionStorage.getItem('navOpen')) {
+    navContainer.classList.add('nav-persistent');
+    navShouldStayOpen = true;
+  }
+
+  // Clear state if user navigates away from nav area after page load
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-container')) {
+      if (!navContainer.matches(':hover')) {
+        navContainer.classList.remove('nav-persistent');
+        sessionStorage.removeItem('navOpen');
+        navShouldStayOpen = false;
+      }
+    }
+  });
+
+
+
+
+
+})();
+</script>
+   
+  </header>
+
+
+  <div class="post-header">
+    <span class="post-header-links">
+      <h1>High and Low Leverage</h1>
+    </span>
+    <span class="post-header-date">Jun 09, 2017</span> 
+  </div>  
+
+  <div class="post-content">
+    <p>Explaining the value of product discovery can, at times, be tricky. Charles Lambdin, an experienced UX consultant, summarises his experience like this.<sup class="footnote-ref"><a href="#fn1" id="fnref1">1</a></sup></p>
+<blockquote>
+<p>They (business stakeholders) wanted to pull up, place their orders, and then focus on the speed of execution. <strong>The whole setup required teams to keep the focus on cost and deadlines,</strong> ignoring that the <strong>“requirements” given were just someone’s ideas—and usually weren’t even good ones.</strong> Typically, no user research had been done at all. No time whatsoever had been spent surfacing and vetting assumptions. No work had been done to optimize the problem frame.</p>
+</blockquote>
+<p>He provides a helpful metaphor for the increasing amount of impact that the successive phases of product development offer. This he calls &quot;discovery leverage points&quot;.</p>
+<p><img src="/imgs/discovery-leverage-points.jpeg" alt="Discovery Leverage Points" title="Discovery Leverage Points"></p>
+<p>Instead of focusing on more effective leverage, teams focus on speed. This I think, is appealing as it feels like a less complex challenge. Charles Lambdin reminds his readers that speed is not answer.</p>
+<blockquote>
+<p>.. if you’re making stupid bets, then <strong>your goal should not be to make them faster!</strong> It should be to make smarter bets.</p>
+</blockquote>
+<p>But what is? He provides a nice, easy to understand framework for the types of questions one should ask and when.</p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Research</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Is the problem worth solving? Is there a need?</td>
+<td>User interviews and observation</td>
+</tr>
+<tr>
+<td>Is there value in these ideas?</td>
+<td>Quick prototyping and testing</td>
+</tr>
+<tr>
+<td>Is this usable? Does it provide a good UX?</td>
+<td>Test coded product released in environment</td>
+</tr>
+</tbody>
+</table>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="#fnref1" class="footnote-backref">1</a></p><p><a href="https://charleslambdin.wordpress.com/teaching-ux/">Teaching UX</a> by Charles Lambdin</p>
+</li>
+</ol>
+</section>
+
+  </div>
+
+</main>
+</body>
+
+
+</html>

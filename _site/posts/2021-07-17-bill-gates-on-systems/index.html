@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="/bundle.css">
+  <title>My Blog</title>
+</head>
+<body>
+<main>
+
+  <header>
+    <div class="nav-container">
+  <div class="nav">
+  <ol>
+    <li><a class="nav-item" href="/"><span>Posts</span></a></li>
+    <li><a class="nav-item" href="/about"><span>About</span></a></li>
+    <li><a class="nav-item" href="/colophon"><span>Colophon</span></a></li>
+  </ol>
+
+</div>
+</div>
+
+<script>
+(function() {
+  // Track if nav should stay open
+  let navShouldStayOpen = false;
+  const navContainer = document.querySelector('.nav-container');
+  
+  if (!navContainer) return;
+
+  // On hover, mark that nav should stay open
+  navContainer.addEventListener('mouseenter', () => {
+    navShouldStayOpen = true;
+    navContainer.classList.add('nav-persistent');
+  });
+
+  // Reset state when mouse leaves completely
+  navContainer.addEventListener('mouseleave', () => {
+    // Small delay to prevent flickering
+    setTimeout(() => {
+      if (!navContainer.matches(':hover')) {
+        navShouldStayOpen = false;
+        navContainer.classList.remove('nav-persistent');
+        sessionStorage.removeItem('navOpen');
+      }
+    }, 200);
+  });
+
+  // Store state in sessionStorage before navigation
+  navContainer.addEventListener('click', (e) => {
+    if (e.target.closest('a')) {
+      if (navShouldStayOpen) {
+        sessionStorage.setItem('navOpen', 'true');
+      }
+    }
+  });
+
+  // Restore state on page load
+  if (sessionStorage.getItem('navOpen')) {
+    navContainer.classList.add('nav-persistent');
+    navShouldStayOpen = true;
+  }
+
+  // Clear state if user navigates away from nav area after page load
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-container')) {
+      if (!navContainer.matches(':hover')) {
+        navContainer.classList.remove('nav-persistent');
+        sessionStorage.removeItem('navOpen');
+        navShouldStayOpen = false;
+      }
+    }
+  });
+
+
+
+
+
+})();
+</script>
+   
+  </header>
+
+
+  <div class="post-header">
+    <span class="post-header-links">
+      <h1>Bill Gates on Systems</h1>
+    </span>
+    <span class="post-header-date">Jul 17, 2021</span> 
+  </div>  
+
+  <div class="post-content">
+    <p>Not surprising that Bill Gates knows his ...</p>
+<p>Plea for a thoughtful use of technology.</p>
+<blockquote>
+<p>Companies embrace information technology at different rates, and some businesses are far ahead of others. But before a manager invests, he or she should remember that a computer or a network of computers is just a tool to <em>help solve identified problems. It isn't, as businesspeople sometimes seem to expect it to be, a cure-all</em>. If I heard a business owner say, &quot;I'm losing money, I'd better get some computers,&quot; I'd tell him to rethink his strategy before he invests. Technology would at best probably only delay the need for more fundamental changes. The first principle for any technology you contemplate introducing into a business is that <strong>automation applied to an efficient operation will magnify the efficiency. The second is that automation applied to an inefficient operation will just entrench the inefficiency</strong>. Instead of rushing out to buy the latest and greatest equipment for every employee or investing in a network, managers in a company of any size should first <strong>step back and think</strong> about how they'd like their business to work. What are its essential processes and its key databases? Ideally, how should information move?</p>
+</blockquote>
+
+  </div>
+
+</main>
+</body>
+
+
+</html>

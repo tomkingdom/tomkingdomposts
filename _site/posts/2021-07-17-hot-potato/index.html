@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="/bundle.css">
+  <title>My Blog</title>
+</head>
+<body>
+<main>
+
+  <header>
+    <div class="nav-container">
+  <div class="nav">
+  <ol>
+    <li><a class="nav-item" href="/"><span>Posts</span></a></li>
+    <li><a class="nav-item" href="/about"><span>About</span></a></li>
+    <li><a class="nav-item" href="/colophon"><span>Colophon</span></a></li>
+  </ol>
+
+</div>
+</div>
+
+<script>
+(function() {
+  // Track if nav should stay open
+  let navShouldStayOpen = false;
+  const navContainer = document.querySelector('.nav-container');
+  
+  if (!navContainer) return;
+
+  // On hover, mark that nav should stay open
+  navContainer.addEventListener('mouseenter', () => {
+    navShouldStayOpen = true;
+    navContainer.classList.add('nav-persistent');
+  });
+
+  // Reset state when mouse leaves completely
+  navContainer.addEventListener('mouseleave', () => {
+    // Small delay to prevent flickering
+    setTimeout(() => {
+      if (!navContainer.matches(':hover')) {
+        navShouldStayOpen = false;
+        navContainer.classList.remove('nav-persistent');
+        sessionStorage.removeItem('navOpen');
+      }
+    }, 200);
+  });
+
+  // Store state in sessionStorage before navigation
+  navContainer.addEventListener('click', (e) => {
+    if (e.target.closest('a')) {
+      if (navShouldStayOpen) {
+        sessionStorage.setItem('navOpen', 'true');
+      }
+    }
+  });
+
+  // Restore state on page load
+  if (sessionStorage.getItem('navOpen')) {
+    navContainer.classList.add('nav-persistent');
+    navShouldStayOpen = true;
+  }
+
+  // Clear state if user navigates away from nav area after page load
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-container')) {
+      if (!navContainer.matches(':hover')) {
+        navContainer.classList.remove('nav-persistent');
+        sessionStorage.removeItem('navOpen');
+        navShouldStayOpen = false;
+      }
+    }
+  });
+
+
+
+
+
+})();
+</script>
+   
+  </header>
+
+
+  <div class="post-header">
+    <span class="post-header-links">
+      <h1>The Hot Potato Process</h1>
+    </span>
+    <span class="post-header-date">Jul 17, 2021</span> 
+  </div>  
+
+  <div class="post-content">
+    <p>In &quot;The Hot Potato Process,” Dan Mall <sup class="footnote-ref"><a href="#fn1" id="fnref1">1</a></sup> challenges the traditional one-way handoff between designers and developers, advocating instead for a truly collaborative workflow.</p>
+<p>Rather <em>than perfecting designs before passing</em> them to developers, <sup class="footnote-ref"><a href="#fn2" id="fnref2">2</a></sup> Mall suggests ideas should be “passed quickly back and forth from designer to developer and back to designer then back to developer for the entirety of a product creation cycle.” This “Hot Potato Process” fosters better outcomes through constant iteration and communication.</p>
+<blockquote>
+<p>... great collaboration follows what Brad Frost and I call “The Hot Potato Process,” where ideas are passed quickly back and forth from designer to developer and back to designer then back to developer for the entirety of a product creation cycle. <sup class="footnote-ref"><a href="#fn3" id="fnref3">3</a></sup></p>
+</blockquote>
+<p>Mall emphasizes that collaboration isn’t limited to co-located teams—remote teams can use video chat and asynchronous recordings to maintain a real-time, interactive dynamic.</p>
+<p>Ultimately, the article argues that “working together means working together,” no matter where team members are located.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="#fnref1" class="footnote-backref">1</a></p><p><a href="https://danmall.com/posts/hot-potato-process/">Dan Mall, The Hot Potatoe Process</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a href="#fnref2" class="footnote-backref">2</a></p><p><a href="https://danmall.com/posts/hot-potato-process/">Dan Mall, The Hot Potatoe Process</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p><a href="#fnref3" class="footnote-backref">3</a></p><p><a href="https://danmall.com/posts/hot-potato-process/">Dan Mall, The Hot Potatoe Process</a></p>
+</li>
+</ol>
+</section>
+
+  </div>
+
+</main>
+</body>
+
+
+</html>

@@ -1,0 +1,147 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="/bundle.css">
+  <title>Tom Kingdom</title>
+
+</head>
+<body>
+  
+  <header>
+  <div class="nav-container">
+  <div class="nav">
+  <ol>
+    <li><a class="nav-item" href="/"><span>Posts</span></a></li>
+    <li><a class="nav-item" href="/about"><span>About</span></a></li>
+    <li><a class="nav-item" href="/colophon"><span>Colophon</span></a></li>
+  </ol>
+
+</div>
+</div>
+
+<script>
+(function() {
+  // Track if nav should stay open
+  let navShouldStayOpen = false;
+  const navContainer = document.querySelector('.nav-container');
+  
+  if (!navContainer) return;
+
+  // On hover, mark that nav should stay open
+  navContainer.addEventListener('mouseenter', () => {
+    navShouldStayOpen = true;
+    navContainer.classList.add('nav-persistent');
+  });
+
+  // Reset state when mouse leaves completely
+  navContainer.addEventListener('mouseleave', () => {
+    // Small delay to prevent flickering
+    setTimeout(() => {
+      if (!navContainer.matches(':hover')) {
+        navShouldStayOpen = false;
+        navContainer.classList.remove('nav-persistent');
+        sessionStorage.removeItem('navOpen');
+      }
+    }, 200);
+  });
+
+  // Store state in sessionStorage before navigation
+  navContainer.addEventListener('click', (e) => {
+    if (e.target.closest('a')) {
+      if (navShouldStayOpen) {
+        sessionStorage.setItem('navOpen', 'true');
+      }
+    }
+  });
+
+  // Restore state on page load
+  if (sessionStorage.getItem('navOpen')) {
+    navContainer.classList.add('nav-persistent');
+    navShouldStayOpen = true;
+  }
+
+  // Clear state if user navigates away from nav area after page load
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-container')) {
+      if (!navContainer.matches(':hover')) {
+        navContainer.classList.remove('nav-persistent');
+        sessionStorage.removeItem('navOpen');
+        navShouldStayOpen = false;
+      }
+    }
+  });
+
+
+
+
+
+})();
+</script>
+   
+  </header>
+  <main>
+
+  
+
+    <ul class="posts">
+      
+      
+      <li>
+        <a class="post-link" href="/posts/2026-01-16-the-best-code-is-none/">
+          <div class="post-title">
+            The Best Code is ...
+          </div> 
+          <div class="post-info">
+            <div class="post-date">Jan 16, 2026</div>
+          </div>
+        </a>
+      
+      </li>
+      
+      <li>
+        <a class="post-link" href="/posts/2026-01-05-70-20-10/">
+          <div class="post-title">
+            70-20-10
+          </div> 
+          <div class="post-info">
+            <div class="post-date">Jan 05, 2026</div>
+          </div>
+        </a>
+      
+      </li>
+      
+      <li>
+        <a class="post-link" href="/posts/2025-12-20-more-than-code/">
+          <div class="post-title">
+            More Than Code?
+          </div> 
+          <div class="post-info">
+            <div class="post-date">Dez 20, 2025</div>
+          </div>
+        </a>
+      
+      </li>
+      
+      <li>
+        <a class="post-link" href="/posts/2017-06-09-value-of-discovery/">
+          <div class="post-title">
+            High and Low Leverage
+          </div> 
+          <div class="post-info">
+            <div class="post-date">Jun 09, 2017</div>
+          </div>
+        </a>
+      
+      </li>
+      
+    </ul>
+
+
+
+  </main>
+</body>
+</html>

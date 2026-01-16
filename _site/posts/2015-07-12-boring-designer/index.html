@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="/bundle.css">
+  <title>My Blog</title>
+</head>
+<body>
+<main>
+
+  <header>
+    <div class="nav-container">
+  <div class="nav">
+  <ol>
+    <li><a class="nav-item" href="/"><span>Posts</span></a></li>
+    <li><a class="nav-item" href="/about"><span>About</span></a></li>
+    <li><a class="nav-item" href="/colophon"><span>Colophon</span></a></li>
+  </ol>
+
+</div>
+</div>
+
+<script>
+(function() {
+  // Track if nav should stay open
+  let navShouldStayOpen = false;
+  const navContainer = document.querySelector('.nav-container');
+  
+  if (!navContainer) return;
+
+  // On hover, mark that nav should stay open
+  navContainer.addEventListener('mouseenter', () => {
+    navShouldStayOpen = true;
+    navContainer.classList.add('nav-persistent');
+  });
+
+  // Reset state when mouse leaves completely
+  navContainer.addEventListener('mouseleave', () => {
+    // Small delay to prevent flickering
+    setTimeout(() => {
+      if (!navContainer.matches(':hover')) {
+        navShouldStayOpen = false;
+        navContainer.classList.remove('nav-persistent');
+        sessionStorage.removeItem('navOpen');
+      }
+    }, 200);
+  });
+
+  // Store state in sessionStorage before navigation
+  navContainer.addEventListener('click', (e) => {
+    if (e.target.closest('a')) {
+      if (navShouldStayOpen) {
+        sessionStorage.setItem('navOpen', 'true');
+      }
+    }
+  });
+
+  // Restore state on page load
+  if (sessionStorage.getItem('navOpen')) {
+    navContainer.classList.add('nav-persistent');
+    navShouldStayOpen = true;
+  }
+
+  // Clear state if user navigates away from nav area after page load
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-container')) {
+      if (!navContainer.matches(':hover')) {
+        navContainer.classList.remove('nav-persistent');
+        sessionStorage.removeItem('navOpen');
+        navShouldStayOpen = false;
+      }
+    }
+  });
+
+
+
+
+
+})();
+</script>
+   
+  </header>
+
+
+  <div class="post-header">
+    <span class="post-header-links">
+      <h1>The Boring Designer</h1>
+    </span>
+    <span class="post-header-date">Jul 12, 2015</span> 
+  </div>  
+
+  <div class="post-content">
+    <p>Two super quotes from Cap Watkins ode to the value of &quot;boring designers&quot;.</p>
+<blockquote>
+<p>The boring designer chases the right idea over their idea every time. They respect their team and will try almost any idea (whether on a whiteboard or in Sketch or in code) that gets thrown their way. <strong>Instead of arguing about whose idea should win, the boring designer tries all the ideas and even elevates others' ideas in the process.</strong> The boring designer abhors groupthink and being told &quot;yes.&quot; They consistently request feedback and new ideas. And as a result when they feel super passionately about their own idea, the team listens.<sup class="footnote-ref"><a href="#fn1" id="fnref1">1</a></sup></p>
+</blockquote>
+<blockquote>
+<p>The boring designer is trusted and valued, because people know they're in it for the product and the user. The boring designer asks questions and leans on others' experience and expertise, creating even more trust over time. They rarely assume they know the answer.<sup class="footnote-ref"><a href="#fn1" id="fnref1">1</a></sup></p>
+</blockquote>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="#fnref1" class="footnote-backref">1</a></p><p><a href="https://capwatkins.com/blog/the-boring-designer">The Boring Designer, Cap Watkins</a></p>
+</li>
+</ol>
+</section>
+
+  </div>
+
+</main>
+</body>
+
+
+</html>
