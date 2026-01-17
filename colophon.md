@@ -5,14 +5,12 @@ layout: about.html
 
 ## Colophon
 
-What is a Colophon, you might ask? 
-
-Traditionally it's a publisher's emblem or imprint, usually on the title page of a book. Nowadays it sometimes used online to explain how a website was made.
-
 * Built with [Eleventy](https://www.11ty.dev/).
 * Hosted on [Github](https://github.com/tomkingdom).
-* Fonts used are Inter by [Rasmus Andersson](https://rsms.me/about/) and Cardo by [David J. Perry](https://scholarsfonts.net/cardofnt.html). 
-* Navigation inspired by [ohnotype.co](https://ohnotype.co/fonts).
+* Tracking with [Plausible](https://plausible.io/).
+* [Cardo](https://scholarsfonts.net/cardofnt.html) by David J. Perry. It is an alternative version of the poplar font Bembo; it uses the same original typeface cut. 
+* [ET Book](https://edwardtufte.github.io/et-book/) is also a Bembo-like font by Dmitry Krasny, Bonnie Scranton, and Edward Tufte. [Digitised](https://github.com/edwardtufte/et-book) by Adam Schartz. Used for headlines.
+* [Inter](https://rsms.me/inter/) by Rasmus Andersson. Used for footntoes as well as blockquotes and tables. 
 
 ## Roadmap
 

@@ -1,10 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=fallback');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=fallback');@import "tailwindcss";
 
+@font-face {
+  font-family: "Garabosse Perle";
+  src: url("/fonts/Garabosse-Perle.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "ET Book Display Italic";
+  src: url("/fonts/et-book-display-italic-old-style-figures.woff") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: fallback;
+}
+
 @theme {
   --breakpoint-xs: 30rem;
   --font-sans: "Inter", "Helvetica Neue", "Helvetica", sans-serif;
   --font-serif: "Cardo", sans-serif;
+  --font-serif-headline: "ET Book Display Italic", sans-serif;
   --font-serif-italic: "Cardo Italic", "Times New Roman", "Times", serif;
   --font-mono: "Mono", "Courier New", "Courier", "Monaco", monospace;
   --color-for-primary: var(--color-black);
@@ -31,10 +48,23 @@ main {
 */
 
 h2 {
-  @apply text-2xl text-for-primary md:pr-12 pb-2 leading-8 mb-6 mt-14 font-sans font-semibold md:px-0 px-6;
+  @apply 
+  text-3xl
+  md:text-4xl 
+  text-for-primary 
+  font-serif-headline
+  font-medium
+  leading-12 
+  mb-4 
+  mt-14
+  md:mt-14 
+  px-6 
+  pb-2 
+  md:px-0
+  md:pr-2;
 }
 h3 {
-  @apply text-base text-for-primary md:pr-12 pb-2 leading-8 mb-2 mt-10 font-sans font-semibold md:px-0 px-6;
+  @apply text-base text-for-primary md:pr-12 pb-2 leading-8 mb-3 mt-10 font-serif-headline font-semibold md:px-0 px-6;
 }
 p {
   @apply text-for-primary text-xl leading-9 mb-6 md:px-0 px-6;
@@ -43,11 +73,6 @@ a {
   @apply text-for-secondary no-underline;
 }
 
-
-
-.weekend {
-  @apply border border-for-primary py-10 px-16 text-2xl bg-white;
-}
 
 
 /* nav base */
@@ -122,10 +147,12 @@ a {
 /* text */
 
 .about {
-  @apply mt-12 md:mt-2;
+  @apply 
+  mt-2 
+  md:mt-2;
 }
-.about :first-child {
-  @apply md:mt-2;
+.about > :first-child {
+  @apply mt-10 md:mt-2;
 }
 
 .about a {
@@ -147,7 +174,7 @@ a {
 /* unordered list */
 
 .about ul {
-  @apply ml-4 md:-ml-5 px-6 md:px-0 list-["\2013"] text-xl list-outside;
+  @apply ml-4 mb-6 md:-ml-5 px-6 md:px-0 list-["\2013"] text-xl list-outside;
 }
 .about ul li {
   @apply mb-3 pl-5;
@@ -213,7 +240,13 @@ a {
 /* blockquote */
 
 blockquote {
-  @apply p-5 pb-8 px-0 md:p-7 md:pb-6 md:pr-8 my-8 mx-4 md:my-10 md:m-11 border border-b-2 border-r-2 border-gray-800 bg-white md:-mx-12 md:w-[calc(100%+6rem)] md:max-w-none;
+  @apply p-5 bg-amber-300 pb-8 px-0 md:p-7 md:pb-6 md:pr-8 my-8 mx-4 md:my-10 md:m-11 border border-b-2 border-r-2 border-gray-800 md:-mx-12 md:w-[calc(100%+6rem)] md:max-w-none;
+}
+blockquote:first-child {
+  @apply mt-0;
+}
+blockquote > h2 {
+  @apply font-sans text-2xl text-for-primary leading-10 font-semibold mb-6;
 }
 blockquote > p {
   @apply text-for-secondary leading-8 font-sans font-normal mb-3;
@@ -228,10 +261,10 @@ blockquote > p > strong {
 /* table */
 
 table {
-  @apply text-base table-auto font-sans p-6 pb-12 pr-8 mx-4 my-10 rounded-sm border border-r-2 border-b-2 border-for-secondary bg-white md:-mx-12 md:w-[calc(100%+6rem)] md:max-w-none;
+  @apply text-base table-auto font-sans p-6 pb-12 pr-8 mx-4 my-10 rounded-sm border border-r-2 border-b-2 border-for-secondary bg-blue-400 md:-mx-12 md:w-[calc(100%+6rem)] md:max-w-none;
 }
 table th {
-  @apply p-5 pr-6 pb-1 text-left align-top;
+  @apply p-5 pr-6 text-sm pb-1 text-white tracking-wide text-left align-top;
 }
 table td {
   @apply p-5 pr-6 pb-1 text-left align-top;

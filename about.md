@@ -5,7 +5,9 @@ layout: about.html
 
 ## Person
 
-From early-stage exploratory research to building design systems, and from branding to growth experiments, I cover the entire spectrum of design practice required for product development. This breadth of experience enables me to strategize and deliver high-level results throughout an organization.
+From early-stage research to design system building, from branding to growth experiments; I cover the full spectrum of design practice required in modern product organisations. 
+
+This breadth of experience enables me to strategise and deliver high-level results organisation-wide.
 
 Currently I work in Munich for [FTAPI](https://www.ftapi.com), a data transfer platform.
 

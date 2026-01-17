@@ -1,6 +1,5 @@
 ---
 title: High and Low Leverage
-
 ---
 
 Explaining the value of product discovery can, at times, be tricky. Charles Lambdin, an experienced UX consultant, summarises his experience like this.[^1]
