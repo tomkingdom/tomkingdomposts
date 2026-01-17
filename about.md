@@ -7,8 +7,6 @@ layout: about.html
 
 From early-stage research to design system building, from branding to growth experiments; I cover the full spectrum of design practice required in modern product organisations. 
 
-This breadth of experience enables me to strategise and deliver high-level results organisation-wide.
-
 Currently I work in Munich for [FTAPI](https://www.ftapi.com), a data transfer platform.
 
 You can find me on [LinkedIn](https://www.linkedin.com/in/tom-kingdom-041212142/) or get in touch at [t@tomkingdom.com](mailto:t@tomkingdom.com).
